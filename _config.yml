@@ -1,3 +1,4 @@
-theme: jekyll-theme-minimal
-title: Ricco's page
-description: Testing
+title: Test Page Title
+author: riccoljy
+description: Test Page Description
+theme: minima
