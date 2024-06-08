@@ -58,8 +58,8 @@ nav a:hover {
 .name {
     font-size: 36px;
     margin: 0;
-    height: 50px; /* Add fixed height */
-    overflow: hidden; /* Hide overflow text */
+    height: 50px; 
+    overflow: hidden; 
 }
 
 #about {

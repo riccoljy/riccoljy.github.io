@@ -90,8 +90,6 @@ app.init = () => {
     }
     
     animateIn();
-
-    // You can uncomment and implement other functionalities here if needed
 }
 
 document.addEventListener('DOMContentLoaded', function() {
