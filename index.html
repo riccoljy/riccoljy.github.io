@@ -1,59 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ricco Lim</title>
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 
 <body>
 
     <header id="main-header">
-        <h1 class="name" id="messenger"></h1>
-        <p>Computer Science Student at NUS | Musician | Software Engineer</p>
+        <div class="headericons">
+            <h1 class="name" id="messenger">Ricco Lim</h1>
+            <a href="https://github.com/riccoljy" target="_blank"><img src="images/github.png" alt="GitHub Profile"
+                    class="icon"></a>
+            <a href="https://linkedin.com/in/riccolim" target="_blank"><img src="images/linkedin.png"
+                    alt="LinkedIn Profile" class="icon"></a>
+        </div>
+        <p id="subtext">Computer Science Undergrad | Musician | Sport-enthusiast</p>
     </header>
-    <nav>
+
+    <!-- <nav>
         <a href="#about">About Me</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-    </nav>
+    </nav> -->
 
     <div class="container">
-
         <section id="about">
             <h2 class="section-header">About Me</h2>
-            <img src="images/headshot.jpg" alt="Ricco">
-            <p>Hi, I'm Ricco, currently a Computer Science Undergraduate at the National University of Singapore. </p>
-            <p>My current interests lie in Compiler Design, Embedded Systems, and maybe a little Database Systems. </p>
-            <p>I have a passion for creating systems from scratch and love to work on improving existing systems. </p>
+            <div class="block">
+                <img src="images/headshot.jpg" alt="Ricco">
+                <br>
+                <p>Hi, I'm Ricco, currently a Computer Science Undergraduate at the National University of Singapore.
+                </p>
+                <p>My current interests lie in Compiler Design, Embedded Systems, ...and maybe a little Database
+                    Systems.
+                </p>
+                <p>I have a passion for creating systems from scratch and love to work on improving existing systems.
+                </p>
+            </div>
 
         </section>
         <section id="projects">
-            <h2 class="section-header">Projects</h2>
-            <div class="project">
+            <h2 class="section-header" style="margin-bottom:0">Projects</h2>
 
-                <h3>The <i>A-maze-ing</i> Race | Maze-solving Robot</h3>
-                <p>The "<i>The A-maze-ing</i> Race" project involved a maze which required us to create a robot which
-                    can solve
-                    through the maze in the shortest amount of time.</p>
+            <div class="project block small">
+                <h3 style="margin-top: 0;">UNIBUDS: Swipe right to Friendships! | Orbital (Ongoing)</h3>
+                <p>UNIBUDS is a mobile application meant for university students to find friends easier. Be it
+                    coursemates to study with, or other students with similar interests in music, sports, or...
+                    anything! UNIBUDS is here for students to find other like-minded university students for whatever
+                    reasons.</p>
                 <p>
-                    Along the maze, there are various pieces of coloured paper on the floor which our robot needs to
-                    detect and react differently in order to complete the race. The colours help determine which
-                    direction the robot has to move in through the maze at a particular way point.</p>
-                <img src="images/test.gif" alt="Your Photo">
+                    This is still an ongoing project so stay tuned for more!
+                </p>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="images\unibuds\unibuds1.PNG" style="max-height: 500px; width: auto;">
+                    <img src="images\unibuds\unibuds2.PNG" style="max-height: 500px; width: auto;">
+                </div>
+            </div>
 
+
+
+            <div class="project block small">
+                <h3 style="margin-top: 0;">The <i>A-maze-ing</i> Race | Maze-solving Robot</h3>
+                <p>The "<i>The A-maze-ing</i> Race" project involved a maze which required us to create a robot which
+                    can solve through the maze in the shortest amount of time.</p>
+                <p>
+                    Along the maze, various pieces of coloured paper instruct our robot react accordingly in order to
+                    complete the race. The colours help determine which direction the robot has to move in through the
+                    maze at a particular way point.
+                </p>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="images/amaze/robot3.jpg">
+                    <img src="images/amaze/robot.gif">
+                    <img src="images/amaze/robot1.jpg">
+                </div>
+                <br>
+                <p>
+                    We had to build custom sensors using LEDs, LDRs, IR Emitter/Detector, then integrate them with the
+                    pre-built sensors in order to:
+                </p>
+                <ul>
+                    <li>Not bump into walls</li>
+                    <li>Stop when a line is detected</li>
+                    <li>Turn based on the colour beneath the robot</li>
+                    <li>Play a victory tune at the end of the maze</li>
+                </ul>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="images/amaze/robot4.jpg">
+                    <img src="images/amaze/tinkercad.png">
+                    <img src="images/amaze/robot2.jpg">
+                </div>
             </div>
-            <div class="project">
+
+            <div class="project block obstacle-block small">
                 <h3>Obstacle Course Robot</h3>
-                <p>The objective of this project is to create a robot that is powered by a battery and is capable of
-                    navigating through an obstacle course. The robot must then stop 5 cm away from a wall and deliver a
-                    ping pong ball over it. The robot must fit within a cube of 30cm x 30cm x 30cm, and can only be
-                    constructed using the provided materials. </p>
+                <p>The objective of this project is to create a robot that is powered by a 9.0V battery and must
+                    navigate through an obstacle course with a slope and bump. The robot must then stop 5 cm away from a
+                    wall and deliver a ping pong ball over it. </p>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="images/obstacle/instructions.png">
+                </div>
+                <p>The robot must be smaller than 30cm x 30cm x 30cm, and
+                    can only be constructed using the provided materials. </p>
                 <p>The time limit for completing the course is 60 seconds.</p>
-            </div>
+                <div class="obstacleContainer">
+                    <div style="text-align: center;">
+                        <p><u>Initial Conception & Prototyping</u></p>
+                        <img src="images/obstacle/robot1.png" alt="Initial Conception & Prototyping">
+                    </div>
+                    <div style="text-align: center;">
+                        <p><u>Final Product</u></p>
+                        <img src="images/obstacle/robot2.png" alt="Final Product">
+                        <img src="images/obstacle/rob2.gif" alt="Final Product">
+
+                    </div>
+                </div>
+                <div class="obstacleContainer">
+                    <div style="text-align: center; padding-top: 5rem;">
+                        <p> <u>CAD Models</u></p>
+                        <img src="images\obstacle\tinkercad.png">
+                        <img src="images\obstacle\rob.gif">
+                        <img src="images\obstacle\robot3.png">
+                        <img src="images\obstacle\robot4.png">
+                    </div>
+                </div>
+                <div class="project block obstacle-block small">
+
+                </div>
         </section>
         <section id="contact">
             <h2 class="section-header">Contact</h2>
