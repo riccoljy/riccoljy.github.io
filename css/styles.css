@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: url("../images/pcb.avif") fixed;
+    background-size: 100% auto;
+}
+
+header {
+    background: #161d49;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 130px;
+    top: 0;
+    transition: background 0.3s, padding 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #11173a;
+    padding: 0.5rem 0;
+    margin-top: 160px;
+}
+
+nav a {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    background: #555;
+}
+
+.container {
+    margin-top: 100px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    background: #444a6d;
+    width: 100%;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.name {
+    font-size: 36px;
+    margin: 0;
+    height: 50px; /* Add fixed height */
+    overflow: hidden; /* Hide overflow text */
+}
+
+#about {
+    margin: 0;
+    padding: 0;
+}
+
+#projects,
+#contact {
+    margin-top: 10rem;
+    padding: 0;
+}
+
+#about h2,
+#projects h2,
+#contact h2 {
+    margin-top: 0;
+}
+
+#about p,
+#about img,
+#projects p,
+#projects h3,
+#projects img,
+#contact p,
+#contact ul {
+    margin-left: 4rem;
+    margin-right: 7rem;
+}
+
+#about img {
+    float: left;
+    margin-right: 2rem;
+    max-width: 230px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* .fixed-header {
+    position: fixed;
+    top: 130px; 
+    transition: top 0.3s ease; 
+    z-index: 1000; 
+} */

@@ -1,3 +1,75 @@
-<h1> 
-    Hi!
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricco Lim</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+    <header id="main-header">
+        <h1 class="name" id="messenger"></h1>
+        <p>Computer Science Student at NUS | Musician | Software Engineer</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+
+        <section id="about">
+            <h2 class="section-header">About Me</h2>
+            <img src="images/headshot.jpg" alt="Ricco">
+            <p>Hi, I'm Ricco, currently a Computer Science Undergraduate at the National University of Singapore. </p>
+            <p>My current interests lie in Compiler Design, Embedded Systems, and maybe a little Database Systems. </p>
+            <p>I have a passion for creating systems from scratch and love to work on improving existing systems. </p>
+
+        </section>
+        <section id="projects">
+            <h2 class="section-header">Projects</h2>
+            <div class="project">
+
+                <h3>The <i>A-maze-ing</i> Race | Maze-solving Robot</h3>
+                <p>The "<i>The A-maze-ing</i> Race" project involved a maze which required us to create a robot which
+                    can solve
+                    through the maze in the shortest amount of time.</p>
+                <p>
+                    Along the maze, there are various pieces of coloured paper on the floor which our robot needs to
+                    detect and react differently in order to complete the race. The colours help determine which
+                    direction the robot has to move in through the maze at a particular way point.</p>
+                <img src="images/test.gif" alt="Your Photo">
+
+            </div>
+            <div class="project">
+                <h3>Obstacle Course Robot</h3>
+                <p>The objective of this project is to create a robot that is powered by a battery and is capable of
+                    navigating through an obstacle course. The robot must then stop 5 cm away from a wall and deliver a
+                    ping pong ball over it. The robot must fit within a cube of 30cm x 30cm x 30cm, and can only be
+                    constructed using the provided materials. </p>
+                <p>The time limit for completing the course is 60 seconds.</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2 class="section-header">Contact</h2>
+            <p>You can reach me at: <a href="mailto:riccoljy@gmail.com">riccoljy@gmail.com</a></p>
+            <p>Follow me on social media:</p>
+            <ul>
+                <li><a href="https://github.com/riccoljy" target="_blank">Github</a></li>
+                <li><a href="https://linkedin.com/in/riccolim" target="_blank">LinkedIn</a></li>
+                <!-- Add more social media links as needed -->
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ricco Lim. All rights reserved.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
