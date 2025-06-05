@@ -1,119 +1,179 @@
 document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('main-header');
-    const sectionHeaders = document.querySelectorAll('.section-header');
-    const blockComponents = document.querySelectorAll('.block');
     const h1 = document.getElementById('messenger');
     const subtext = document.getElementById('subtext');
+    const projectCards = document.querySelectorAll('.project-card');
     let isScrolled = false;
 
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    // Observe project cards for animations
+    projectCards.forEach(card => {
+        observer.observe(card);
+    });
+
+    // Observe about section
+    const aboutSection = document.querySelector('#about .about-content');
+    if (aboutSection) {
+        observer.observe(aboutSection);
+    }
+
     function stopScrambling() {
+        // Clear any ongoing animations
+        if (app.animationTimeout) {
+            clearTimeout(app.animationTimeout);
+        }
+        if (app.fadeTimeout) {
+            clearTimeout(app.fadeTimeout);
+        }
+        if (app.cycleTimeout) {
+            clearTimeout(app.cycleTimeout);
+        }
+        app.isAnimating = false;
         h1.textContent = 'Ricco Lim';
     }
 
     function startScrambling() {
-        h1.textContent = ''; // Clear h1 content for scrambling effect
-        app.init();
+        if (!app.isAnimating) {
+            h1.textContent = '\u00A0'; // Non-breaking space to maintain height
+            app.init();
+        }
     }
 
-    function getCenter(element) {
-        const rect = element.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        return { centerX, centerY };
-    }
-
-    function getScreenCenter() {
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        return { centerX, centerY };
-    }
-
-    window.addEventListener('scroll', function () {
-
-        //#region Moving Section Headers
-
-        // sectionHeaders.forEach(function (sectionHeader) {
-        //     const section = sectionHeader.parentElement;
-        //     const rect = section.getBoundingClientRect();
-        //     let inactiveRect, activeRect;
-
-        //     if (rect.top <= 162 && rect.bottom >= 0) {
-        //         console.log('a', activeRect, 'i', inactiveRect, rect, section);
-        //         sectionHeader.style.position = 'fixed';
-        //         sectionHeader.style.top = '130px'
-        //     }
-        //     else {
-        //         sectionHeader.style.position = 'static';
-        //     }
-        // });
-
-        //#endregion Moving Section Headers
-
-        //Focus on each "block"
-        blockComponents.forEach(function (blockComponent) {
-            console.log("cmoponent =", blockComponent, blockComponent.getBoundingClientRect().bottom)
-            if (blockComponent.getBoundingClientRect().bottom < 260 || blockComponent.getBoundingClientRect().top > 360) blockComponent.classList.add('small')
-            else blockComponent.classList.remove('small');
-        });
-
-        //Scramble
-        if (window.scrollY > 30) {
-            header.style.background = '#3b2e7d';
-            header.style.padding = '0';
-            subtext.classList.add('hidden'); // Hide subtext with transition
-            if (!isScrolled) {
-                stopScrambling();
-                isScrolled = true;
+    // Smooth scroll handling to prevent flickering
+    let ticking = false;
+    let scrollTimeout;
+    const SCROLL_THRESHOLD = 60;
+    
+    function updateHeader() {
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > SCROLL_THRESHOLD) {
+            if (!header.classList.contains('scrolled')) {
+                // Apply scrolled state immediately to prevent flickering
+                header.classList.add('scrolled');
+                subtext.classList.add('hidden');
+                if (!isScrolled) {
+                    stopScrambling();
+                    isScrolled = true;
+                }
             }
         } else {
-            header.style.background = '#161d49';
-            header.style.padding = '2rem 0';
-
-            subtext.classList.remove('hidden'); // Show subtext with transition
-            if (isScrolled) {
-                isScrolled = false;
-                startScrambling();
+            if (header.classList.contains('scrolled')) {
+                // Use slight delay when returning to normal state for smoother transition
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    header.classList.remove('scrolled');
+                    subtext.classList.remove('hidden');
+                    if (isScrolled) {
+                        isScrolled = false;
+                        startScrambling();
+                    }
+                }, 50);
             }
+        }
+        
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
         }
     });
 
-    const app = {};
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add hover effects to project cards
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Enhanced scrambling effect
+    const app = {
+        animationTimeout: null,
+        fadeTimeout: null,
+        cycleTimeout: null,
+        isAnimating: false
+    };
 
     app.init = () => {
-        // Scrambling Letters Effect
         const messenger = document.getElementById('messenger');
-        const codeletters = "&#*+%?£@§$";
-        const messages = [
-            'Ricco Lim'
-        ];
+        const codeletters = "⚡☉◈◎⧫⬢⬡◆◇";
+        const messages = ['Ricco Lim'];
         let messageIndex = 0;
         let currentLength = 0;
         let fadeBuffer = false;
 
+        app.isAnimating = true;
+
         function generateRandomString(length) {
             let randomText = '';
-            while (randomText.length < length) randomText += codeletters.charAt(Math.floor(Math.random() * codeletters.length));
+            while (randomText.length < length) {
+                randomText += codeletters.charAt(Math.floor(Math.random() * codeletters.length));
+            }
             return randomText;
         }
 
         function animateIn() {
-            if (isScrolled) return; // Stop animation if scrolled
+            if (isScrolled || !app.isAnimating) return;
+            
             if (currentLength < messages[messageIndex].length) {
-                currentLength += 2;
-                if (currentLength > messages[messageIndex].length) currentLength = messages[messageIndex].length;
+                currentLength += Math.random() > 0.5 ? 2 : 1;
+                if (currentLength > messages[messageIndex].length) {
+                    currentLength = messages[messageIndex].length;
+                }
+                
                 let message = generateRandomString(currentLength);
                 messenger.innerHTML = message;
-                setTimeout(animateIn, 20);
-            } 
-            else setTimeout(animateFadeBuffer, 20);
-            
+                app.animationTimeout = setTimeout(animateIn, 40 + Math.random() * 30);
+            } else {
+                app.animationTimeout = setTimeout(animateFadeBuffer, 20);
+            }
         }
 
         function animateFadeBuffer() {
-            if (isScrolled) return; // Stop animation if scrolled
+            if (isScrolled || !app.isAnimating) return;
+            
             if (!fadeBuffer) {
                 fadeBuffer = [];
-                for (let i = 0; i < messages[messageIndex].length; i++) fadeBuffer.push({ c: (Math.floor(Math.random() * 12)) + 1, l: messages[messageIndex].charAt(i) });
+                for (let i = 0; i < messages[messageIndex].length; i++) {
+                    fadeBuffer.push({ 
+                        c: (Math.floor(Math.random() * 15)) + 1, 
+                        l: messages[messageIndex].charAt(i) 
+                    });
+                }
             }
 
             let doCycles = false;
@@ -125,29 +185,49 @@ document.addEventListener('DOMContentLoaded', function () {
                     doCycles = true;
                     fader.c--;
                     message += codeletters.charAt(Math.floor(Math.random() * codeletters.length));
-                } 
-                else message += fader.l;
+                } else {
+                    message += fader.l;
+                }
             }
 
             messenger.innerHTML = message;
 
-            if (doCycles) setTimeout(animateFadeBuffer, 50);
-            else setTimeout(cycleText, 2000);
-
+            if (doCycles) {
+                app.fadeTimeout = setTimeout(animateFadeBuffer, 60 + Math.random() * 40);
+            } else {
+                app.cycleTimeout = setTimeout(cycleText, 3000);
+            }
         }
 
         function cycleText() {
-            if (isScrolled) return; // Stop animation if scrolled
+            if (isScrolled || !app.isAnimating) return;
+            
             messageIndex = (messageIndex + 1) % messages.length;
             currentLength = 0;
             fadeBuffer = false;
-            messenger.innerHTML = '';
+            messenger.innerHTML = '\u00A0'; // Maintain space
 
-            setTimeout(animateIn, 200);
+            app.cycleTimeout = setTimeout(animateIn, 300);
         }
 
         animateIn();
-    }
+    };
 
+
+
+    // Initialize typing animation
     app.init();
+
+    // Add loading animation
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+        
+        // Trigger animations for visible elements
+        const elementsToAnimate = document.querySelectorAll('.about-content, .project-card');
+        elementsToAnimate.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('fade-in-up');
+            }, index * 100);
+        });
+    });
 });

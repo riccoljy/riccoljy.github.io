@@ -1,151 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricco Lim</title>
+    <title>Ricco Lim - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <header id="main-header">
-        <div class="headericons">
-            <h1 class="name" id="messenger">Ricco Lim</h1>
-            <a href="https://github.com/riccoljy" target="_blank"><img src="images/github.png" alt="GitHub Profile"
-                    class="icon"></a>
-            <a href="https://linkedin.com/in/riccolim" target="_blank"><img src="images/linkedin.png"
-                    alt="LinkedIn Profile" class="icon"></a>
+        <div class="header-content">
+            <div>
+                <h1 class="name" id="messenger">Ricco Lim</h1>
+                <p id="subtext">Software Engineer | Clarinetist | Outdoor Enthusiast</p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/riccoljy" target="_blank" aria-label="GitHub Profile">
+                    <img src="images/github.png" alt="GitHub" class="icon">
+                </a>
+                <a href="https://linkedin.com/in/riccolim" target="_blank" aria-label="LinkedIn Profile">
+                    <img src="images/linkedin.png" alt="LinkedIn" class="icon">
+                </a>
+            </div>
         </div>
-        <p id="subtext">Computer Science Undergrad | Musician | Sport-enthusiast</p>
     </header>
 
-    <!-- <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav> -->
-
-    <div class="container">
+    <main>
         <section id="about">
-            <h2 class="section-header">About Me</h2>
-            <div class="block">
-                <img src="images/headshot.jpg" alt="Ricco">
-                <br>
-                <p>Hi, I'm Ricco, currently a Computer Science Undergraduate at the National University of Singapore.
-                </p>
-                <p>My current interests lie in Compiler Design, Embedded Systems, ...and maybe a little Database
-                    Systems.
-                </p>
-                <p>I have a passion for creating systems from scratch and love to work on improving existing systems.
-                </p>
+            <div class="container">
+                <h2 class="section-header">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/headshot.jpg" alt="Ricco Lim">
+                    </div>
+                    <div class="about-text">
+                        <p>Hi, I'm Ricco! I'm a Computer Science student at the National University of Singapore with a passion for building things that matter—whether it's autonomous robots navigating mazes or mobile apps connecting university students.</p>
+                        <p>My fascination lies in the intersection of hardware and software, particularly in Compiler Design and Embedded Systems. There's something deeply satisfying about crafting efficient code that brings machines to life, from custom sensor integrations to precision-controlled robotics. I thrive on the challenge of building systems from the ground up and optimizing existing ones.</p>
+                        <p>Beyond the digital realm, I find balance through music and adventure. You'll catch me playing clarinet in ensembles, where precision and teamwork create harmony—skills that translate beautifully to collaborative coding. When I need to recharge, I'm out bouldering or kayaking, where problem-solving meets the great outdoors.</p>
+                        <p>I'm driven by the belief that technology should enhance human experiences and solve real-world challenges. Always eager to learn, collaborate, and push the boundaries of what's possible.</p>
+                    </div>
+                </div>
             </div>
-
         </section>
+
         <section id="projects">
-            <h2 class="section-header" style="margin-bottom:0">Projects</h2>
+            <div class="container">
+                <h2 class="section-header">Projects</h2>
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>UNIBUDS: Swipe right to Friendships!</h3>
+                            <p><em>Full-Stack Mobile Application | NUS Orbital Project</em></p>
+                        </div>
+                        <div class="project-description">
+                            <p>A comprehensive social networking mobile application built with React Native that connects university students through smart matching algorithms. UNIBUDS facilitates meaningful friendships and study partnerships through location-based sorting, interest matching, and real-time communication features.</p>
+                            <p>Successfully deployed with full authentication, matching algorithms, chat systems, interest groups, and Telegram bot integration for seamless user engagement.</p>
+                        </div>
+                        <div class="project-images">
+                            <img src="images/unibuds/unibuds1.PNG" alt="UNIBUDS App Screenshot 1">
+                            <img src="images/unibuds/unibuds2.PNG" alt="UNIBUDS App Screenshot 2">
+                        </div>
+                        <div class="project-features">
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>React Native & TypeScript for cross-platform mobile development</li>
+                                <li>Supabase for real-time database and authentication</li>
+                                <li>Python Telegram Bot API with Heroku deployment</li>
+                                <li>GitHub for version control and collaborative development</li>
+                                <li>Jest for automated unit and component testing</li>
+                            </ul>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>User authentication & profile creation with validation</li>
+                                <li>Smart matching algorithm with swipe functionality</li>
+                                <li>Real-time chat system between matched users</li>
+                                <li>Location-based sorting and course/university filtering</li>
+                                <li>Interest groups for study sessions and social meetups</li>
+                                <li>Social feed for sharing updates with friends</li>
+                                <li>Telegram bot integration for notifications</li>
+                                <li>Comprehensive settings and account management</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="project block small">
-                <h3 style="margin-top: 0;">UNIBUDS: Swipe right to Friendships! | Orbital (Ongoing)</h3>
-                <p>UNIBUDS is a mobile application meant for university students to find friends easier. Be it
-                    coursemates to study with, or other students with similar interests in music, sports, or...
-                    anything! UNIBUDS is here for students to find other like-minded university students for whatever
-                    reasons.</p>
-                <p>
-                    This is still an ongoing project so stay tuned for more!
-                </p>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="images\unibuds\unibuds1.PNG" style="max-height: 500px; width: auto;">
-                    <img src="images\unibuds\unibuds2.PNG" style="max-height: 500px; width: auto;">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>The <em>A-maze-ing</em> Race</h3>
+                            <p><em>Autonomous Maze-Solving Robot</em></p>
+                        </div>
+                        <div class="project-description">
+                            <p>An autonomous robot designed to navigate through a complex maze in the shortest time possible. The robot uses color detection to interpret navigation instructions placed throughout the maze.</p>
+                            <p>Various colored papers along the maze provide directional cues, making this a challenging exercise in sensor integration and autonomous navigation.</p>
+                        </div>
+                        <div class="project-images">
+                            <img src="images/amaze/robot3.jpg" alt="Maze Robot Front View">
+                            <img src="images/amaze/robot.gif" alt="Robot in Action">
+                            <img src="images/amaze/robot1.jpg" alt="Robot Side View">
+                            <img src="images/amaze/robot4.jpg" alt="Robot Components">
+                            <img src="images/amaze/tinkercad.png" alt="TinkerCAD Design">
+                            <img src="images/amaze/robot2.jpg" alt="Robot Assembly">
+                        </div>
+                        <div class="project-features">
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>Arduino microcontroller programming in C++</li>
+                                <li>Custom sensor integration (LEDs, LDRs, IR emitters/detectors)</li>
+                                <li>TinkerCAD for circuit design and prototyping</li>
+                                <li>Hardware assembly and mechanical engineering</li>
+                                <li>Real-time embedded systems programming</li>
+                            </ul>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Custom sensor integration using LEDs, LDRs, and IR components</li>
+                                <li>Collision avoidance system</li>
+                                <li>Line detection for stopping points</li>
+                                <li>Color-based navigation system</li>
+                                <li>Victory tune playback upon completion</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Obstacle Course Robot</h3>
+                            <p><em>Precision Engineering & Autonomous Navigation</em></p>
+                        </div>
+                        <div class="project-description">
+                            <p>A battery-powered robot designed to navigate through an obstacle course featuring slopes and bumps. The challenge required precision engineering to deliver a ping pong ball over a wall while stopping exactly 5cm away from it.</p>
+                            <p>Built within strict size constraints (30cm³) and a 60-second time limit, this project showcased mechanical design and programming precision.</p>
+                        </div>
+                        <div class="project-images">
+                            <img src="images/obstacle/instructions.png" alt="Course Instructions">
+                            <img src="images/obstacle/robot1.png" alt="Initial Prototype">
+                            <img src="images/obstacle/robot2.png" alt="Final Robot">
+                            <img src="images/obstacle/rob2.gif" alt="Robot Navigation">
+                            <img src="images/obstacle/tinkercad.png" alt="TinkerCAD Design">
+                            <img src="images/obstacle/rob.gif" alt="Robot Animation">
+                            <img src="images/obstacle/robot3.png" alt="CAD Model View 1">
+                            <img src="images/obstacle/robot4.png" alt="CAD Model View 2">
+                        </div>
+                        <div class="project-features">
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>Arduino programming for motor control and sensors</li>
+                                <li>TinkerCAD for 3D modeling and circuit simulation</li>
+                                <li>Mechanical engineering and constraint-based design</li>
+                                <li>Precision sensor programming for distance measurement</li>
+                                <li>Real-time control systems and autonomous navigation</li>
+                            </ul>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>CAD modeling and 3D design prototyping</li>
+                                <li>Precision distance measurement and control</li>
+                                <li>Mechanical ball delivery system</li>
+                                <li>Optimized for speed and accuracy</li>
+                                <li>Built with limited material constraints</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Morpheus: AI Dream Analysis</h3>
+                            <p><em>Full-Stack AI Application | HackPrinceton Spring 2025</em></p>
+                        </div>
+                        <div class="project-description">
+                            <p>An AI-powered dream analysis application that guides users through a comprehensive four-step process: collecting dream information, processing data, generating personalized insights, and creating visual representations. Built with modern web technologies and integrated with multiple AI services for both analysis and visualization.</p>
+                            <p>The application features a conversational interface for dream collection, LLM-powered psychological analysis, and AI-generated dream visualizations using Stable Diffusion, creating a complete dream interpretation experience.</p>
+                        </div>
+                        <div class="project-images">
+                            <!-- Note: Add actual screenshots when available -->
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 0.5rem; text-align: center; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                                <div>
+                                    <h4>🌙 Dream Analysis Interface</h4>
+                                    <p>Screenshots coming soon</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-features">
+                            <h4>Tech Stack:</h4>
+                            <ul>
+                                <li>React & TypeScript for responsive frontend development</li>
+                                <li>Python backend with OpenAI/LLM integration</li>
+                                <li>Fireworks AI for Stable Diffusion image generation</li>
+                                <li>Supabase for data storage and user management</li>
+                                <li>Tailwind CSS & Framer Motion for modern UI/UX</li>
+                                <li>Google Gemini AI for advanced dream interpretation</li>
+                            </ul>
+                        </div>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Conversational dream data collection interface</li>
+                                <li>AI-powered symbolism and emotional analysis</li>
+                                <li>Personalized insights and psychological interpretation</li>
+                                <li>Stable Diffusion dream visualization generation</li>
+                                <li>Interactive mood-based UI with dynamic backgrounds</li>
+                                <li>Dream journaling and pattern tracking</li>
+                                <li>RESTful API with structured JSON output</li>
+                                <li>Automated testing with Jest and React Testing Library</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-
-
-            <div class="project block small">
-                <h3 style="margin-top: 0;">The <i>A-maze-ing</i> Race | Maze-solving Robot</h3>
-                <p>The "<i>The A-maze-ing</i> Race" project involved a maze which required us to create a robot which
-                    can solve through the maze in the shortest amount of time.</p>
-                <p>
-                    Along the maze, various pieces of coloured paper instruct our robot react accordingly in order to
-                    complete the race. The colours help determine which direction the robot has to move in through the
-                    maze at a particular way point.
-                </p>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="images/amaze/robot3.jpg">
-                    <img src="images/amaze/robot.gif">
-                    <img src="images/amaze/robot1.jpg">
-                </div>
-                <br>
-                <p>
-                    We had to build custom sensors using LEDs, LDRs, IR Emitter/Detector, then integrate them with the
-                    pre-built sensors in order to:
-                </p>
-                <ul>
-                    <li>Not bump into walls</li>
-                    <li>Stop when a line is detected</li>
-                    <li>Turn based on the colour beneath the robot</li>
-                    <li>Play a victory tune at the end of the maze</li>
-                </ul>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="images/amaze/robot4.jpg">
-                    <img src="images/amaze/tinkercad.png">
-                    <img src="images/amaze/robot2.jpg">
-                </div>
-            </div>
-
-            <div class="project block obstacle-block small">
-                <h3>Obstacle Course Robot</h3>
-                <p>The objective of this project is to create a robot that is powered by a 9.0V battery and must
-                    navigate through an obstacle course with a slope and bump. The robot must then stop 5 cm away from a
-                    wall and deliver a ping pong ball over it. </p>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="images/obstacle/instructions.png">
-                </div>
-                <p>The robot must be smaller than 30cm x 30cm x 30cm, and
-                    can only be constructed using the provided materials. </p>
-                <p>The time limit for completing the course is 60 seconds.</p>
-                <div class="obstacleContainer">
-                    <div style="text-align: center;">
-                        <p><u>Initial Conception & Prototyping</u></p>
-                        <img src="images/obstacle/robot1.png" alt="Initial Conception & Prototyping">
-                    </div>
-                    <div style="text-align: center;">
-                        <p><u>Final Product</u></p>
-                        <img src="images/obstacle/robot2.png" alt="Final Product">
-                        <img src="images/obstacle/rob2.gif" alt="Final Product">
-
-                    </div>
-                </div>
-                <div class="obstacleContainer">
-                    <div style="text-align: center; padding-top: 5rem;">
-                        <p> <u>CAD Models</u></p>
-                        <img src="images\obstacle\tinkercad.png">
-                        <img src="images\obstacle\rob.gif">
-                        <img src="images\obstacle\robot3.png">
-                        <img src="images\obstacle\robot4.png">
-                    </div>
-                </div>
-                <div class="project block obstacle-block small">
-
-                </div>
         </section>
+
         <section id="contact">
-            <h2 class="section-header">Contact</h2>
-            <p>You can reach me at: <a href="mailto:riccoljy@gmail.com">riccoljy@gmail.com</a></p>
-            <p>Follow me on social media:</p>
-            <ul>
-                <li><a href="https://github.com/riccoljy" target="_blank">Github</a></li>
-                <li><a href="https://linkedin.com/in/riccolim" target="_blank">LinkedIn</a></li>
-            </ul>
+            <div class="container">
+                <h2 class="section-header">Let's Connect</h2>
+                <p>I'm always interested in discussing new opportunities, innovative projects, or just having a chat about technology and engineering.</p>
+                <p>Feel free to reach out: <a href="mailto:riccoljy@gmail.com">riccoljy@gmail.com</a></p>
+                
+                <ul class="contact-links">
+                    <li>
+                        <a href="https://github.com/riccoljy" target="_blank">
+                            <img src="images/github.png" alt="GitHub" class="icon" style="width: 20px; height: 20px;">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/riccolim" target="_blank">
+                            <img src="images/linkedin.png" alt="LinkedIn" class="icon" style="width: 20px; height: 20px;">
+                            LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
-    </div>
+    </main>
+
     <footer>
-        <p>&copy; 2024 Ricco Lim. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Ricco Lim. All rights reserved.</p>
+        </div>
     </footer>
+
     <script src="scripts.js"></script>
 </body>
 
